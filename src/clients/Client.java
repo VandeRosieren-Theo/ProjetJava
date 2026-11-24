@@ -14,6 +14,7 @@ public class Client {
 
 
 
+
     public Client(){
 
         System.out.println("Constructeur par défaut");
@@ -105,4 +106,10 @@ public class Client {
         return String.format("[%s] %s %s (%d) - Tél : %s",
                 numeroPermis, prenom, nom, anneeNaissance, telephone);
     }
+
+
+    public double calculerRemise(){
+        return 0.0;
+    }
+
 }
