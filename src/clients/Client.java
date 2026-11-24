@@ -1,12 +1,16 @@
 package clients;
 
+import java.util.Objects;
+
 public class Client {
 
-    protected String nom;
-    protected String prenom;
-    protected String numeroPermis;
-    protected String telephone;
-    protected int anneeNaissance;
+    private String nom;
+    private String prenom;
+    private String numeroPermis;
+    private String telephone;
+    private int anneeNaissance;
+    private static int compteurClients;
+    public static final String DEVISE = "EUR";
 
 
 
@@ -18,7 +22,7 @@ public class Client {
         numeroPermis = "N/A";
         telephone = "N/A";
         anneeNaissance = 2000;
-
+        compteurClients++;
 
     }
 
@@ -31,17 +35,19 @@ public class Client {
         this.numeroPermis=numeroPermis;
         this.telephone=telephone;
         this.anneeNaissance=anneeNaissance;
+        compteurClients++;
     }
 
     public Client( Client c){
 
 
-        System.out.println("Constructeur de copie");
+        System.out.println("Constructeur de copie,");
         this.nom=c.nom;
         this.prenom=c.prenom;
         this.numeroPermis=c.numeroPermis;
         this.telephone=c.telephone;
         this.anneeNaissance=c.anneeNaissance;
+        compteurClients++;
     }
 
     public int calculerAge(int anneeCourante){
@@ -50,8 +56,53 @@ public class Client {
     }
 
     public void afficherInfos(){
-        System.out.println("nom = " + this.nom + ", nom = " + this.prenom + ", numeroPermis = " + numeroPermis + ", telephone = " + telephone + ", annee naissance = " + anneeNaissance + ", age =" + calculerAge(anneeNaissance));
+        System.out.println("nom = " + this.nom + ", nom = " + this.prenom + ", numeroPermis = " + numeroPermis + ", telephone = " + telephone + ", annee naissance = " + anneeNaissance + ", age =" + calculerAge(2026));
     }
 
 
+    public String getNom(){ return nom;}
+    public String getPrenom(){return prenom;}
+    public String getTelephone(){return telephone;}
+    public String getNumeroPermis(){return numeroPermis;}
+    public int getAnneeNaissance(){return anneeNaissance;}
+    public static int getCompteurClients(){return compteurClients;}
+
+
+    public void setNom(String nom){
+        this.nom=nom;
+    }
+
+    public void setAnneeNaissance(int anneeNaissance) {
+        this.anneeNaissance = anneeNaissance;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+
+    @Override
+    public boolean equals(Object o){
+        if(this==o) return true;
+        if (o==null) return false;
+        Client autre = (Client) o;
+        return this.numeroPermis.equals(autre.numeroPermis);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numeroPermis);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[%s] %s %s (%d) - Tél : %s",
+                numeroPermis, prenom, nom, anneeNaissance, telephone);
+    }
 }
