@@ -1,4 +1,4 @@
-package véhicules;
+package vehicules;
 
 public class Moto {
 }
