@@ -1,4 +1,4 @@
 package interfaces;
 
-public class Reservable {
+public interface Reservable {
 }

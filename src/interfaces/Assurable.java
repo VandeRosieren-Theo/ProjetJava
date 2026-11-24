@@ -1,4 +1,4 @@
 package interfaces;
 
-public class Assurable {
+public interface Assurable {
 }

@@ -1,4 +1,4 @@
 package interfaces;
 
-public class Maintenable {
+public interface Maintenable {
 }
