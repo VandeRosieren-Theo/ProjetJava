@@ -21,5 +21,7 @@ public class TestVehicules {
         for (Vehicule v : vs) {
             v.afficherInfos();
         }
+
+        System.out.println(v1.hashCode() == v3.hashCode());
     }
 }

@@ -1,5 +1,7 @@
 package vehicules;
 
+import java.util.Objects;
+
 public class Vehicule {
 
     private String immatriculation;
@@ -83,5 +85,10 @@ public class Vehicule {
         if (obj == null || getClass() != obj.getClass()) return false;
         Vehicule autre = (Vehicule) obj;
         return this.immatriculation.equals(autre.immatriculation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(immatriculation);
     }
 }
