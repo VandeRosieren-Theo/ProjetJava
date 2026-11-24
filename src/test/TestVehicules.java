@@ -13,5 +13,13 @@ public class TestVehicules {
         v1.rouler(250);
         System.out.println("Après 250km:");
         v1.afficherInfos();
+
+        System.out.println(v1 == v3);
+        System.out.println(v3.equals(v1));
+
+        Vehicule[] vs = {v1, v2, v3};
+        for (Vehicule v : vs) {
+            v.afficherInfos();
+        }
     }
 }
